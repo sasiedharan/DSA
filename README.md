@@ -1,6 +1,6 @@
 # DSA
-these where the codes that i have written while doing DSA
-MERGE SORT
+//these where the codes that i have written while doing DSA
+//MERGE SORT
 #include<bits/stdc++.h>
 using namespace std;
 
