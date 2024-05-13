@@ -1,6 +1,6 @@
 # DSA
 //these where the codes that i have written while doing DSA
-//MERGE SORT
+----------------------------------------------------------------------------------MERGE SORT------------------------------------------------------------------------------------------------------------------------
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -62,4 +62,53 @@ int main() {
         sol();
     }
     return 0;
+}
+-----------------------------------------------------------------------------------------------------QUICK SORT----------------------------------------------------------------------------------------------------
+#include<bits/stdc++.h>
+using namespace std;
+
+int fun(vector<int>& arr, int low, int high) {
+    int pivot = arr[low];
+    int i = low + 1, j = high;
+
+    while(i <= j) {
+        while(i <= high && arr[i] <= pivot)
+            i++;
+        while(j >= low && arr[j] > pivot)
+            j--;
+        if(i < j)
+            swap(arr[i], arr[j]);
+    }
+    swap(arr[low], arr[j]);
+    return j;
+}
+
+void QuickSort(vector<int>& arr, int low, int high) {
+    if(low < high) {
+        int pIndex = fun(arr, low, high);
+        QuickSort(arr, low, pIndex - 1);
+        QuickSort(arr, pIndex + 1, high);
+    }
+}
+
+int main() {
+    ios::sync_with_stdio(0);
+    cin.tie(0);
+
+#ifndef ONLINE_JUDGE
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
+#endif
+
+    int n;
+    cin >> n;
+    vector<int> arr(n);
+    for(int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+    QuickSort(arr, 0, n - 1);
+    for(int i = 0; i < n; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
 }
