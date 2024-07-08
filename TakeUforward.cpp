@@ -25,7 +25,18 @@ Node* convert(vector<int>& arr) {
     }
     return head;
 }
+Node* Return_doublely_LL(vector<int>&arr){
+    Node* head=new Node(arr[0]);
+    Node* previous=head;
+    if(head==NULL) return head;
+    for(int i=1;i<arr.size();i++){
+        Node* temp=new Node(arr[i],NULL,previous);
+        previous->next=temp;
+        previous=previous->next;
+    }
+    return head;
 
+} 
 Node* Delete_K(Node* Head,int k) {
     if(Head==nullptr) return Head;
     if(Head->data==k){
