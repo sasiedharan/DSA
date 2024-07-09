@@ -84,6 +84,15 @@ Node* InsertVal(Node* Head,int Val,int k){
     }
     return Head;
 }
+Node* DeleteHead(Node* Head){
+    Node* previous=Head;
+    Head=Head->next;
+    previous->back=nullptr;
+    delete previous;
+    Head->back=nullptr;
+    return Head;
+
+}
 void print(Node* head) {
     while (head != nullptr) {
         cout << head->data << " ";
