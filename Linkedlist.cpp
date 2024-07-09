@@ -93,6 +93,16 @@ Node* DeleteHead(Node* Head){
     return Head;
 
 }
+Node* DeleteTail(Node *Head){
+    Node* Tail=Head;
+    while(Tail->next!=nullptr){
+        Tail=Tail->next;
+    }
+    Node* previous=Tail->back;
+    previous->next=nullptr;
+    previous=nullptr;
+    return Head;
+}
 void print(Node* head) {
     while (head != nullptr) {
         cout << head->data << " ";
